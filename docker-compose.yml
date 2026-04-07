@@ -6,9 +6,9 @@ services:
    container_name: dbt_postgres 
    restart: always 
    environment: 
-     POSTGRES_USER: dbt_user 
-     POSTGRES_PASSWORD: dbt_password 
-     POSTGRES_DB: dbt_warehouse
+     POSTGRES_USER: sherwin
+     POSTGRES_PASSWORD: Sherwin@1234
+     POSTGRES_DB: test
    ports: 
      - "5432:5432" 
    volumes: 
@@ -19,9 +19,10 @@ services:
  dbt: 
    build: . 
    container_name: dbt_core 
+   tty: true
+   stdin_open: true
    volumes: 
-     - ./dbt_project:/usr/app 
-     - ./dbt_project/.dbt:/root/.dbt
+    - .:/usr/app        # add this
    depends_on: 
      - postgres 
    networks: 
