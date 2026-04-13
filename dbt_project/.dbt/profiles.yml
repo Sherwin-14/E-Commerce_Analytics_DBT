@@ -1,0 +1,12 @@
+dbt_ecomm:
+  outputs:
+    dev:
+      dbname: test
+      host: postgres
+      pass: Sherwin@1234
+      port: 5432
+      schema: dev
+      threads: 4
+      type: postgres
+      user: sherwin
+  target: dev

@@ -19,6 +19,9 @@ services:
  dbt: 
    build: . 
    container_name: dbt_core 
+   environment:
+      # This path must match where the .dbt folder is inside the container
+    - DBT_PROFILES_DIR=/usr/app/dbt_project/.dbt
    tty: true
    stdin_open: true
    volumes: 
